@@ -9,13 +9,16 @@
 <body>
 <div class="container">
         <div class="row">
-            <h2 style="margin-left: 50px">Login with Social Media</h2>
+            <h2 style="text-align:center">Login with Social Media or Manually</h2>
+            <div class="vl">
+                <span class="vl-innertext">or</span>
+            </div>
 
             <div class="col">
                 <a th:href="@{'/facebooklogin'}" class="fb btn">
                     <i class="fa fa-facebook fa-fw"></i> Login with Facebook
                 </a>
-                <a href="#" class="linkedin btn">
+                <a th:href="@{'/linkedinlogin'}" class="linkedin btn">
                     <i class="fa fa-linkedin fa-fw"></i> Login with LinkedIn
                 </a>
                 <a th:href="@{'/googlelogin'}" class="google btn"><i class="fa fa-google fa-fw">
@@ -23,15 +26,18 @@
                 </a>
             </div>
 
-           <!-- <div class="col">
+            <div class="col">
                 <div class="hide-md-lg">
                     <p>Or sign in manually:</p>
                 </div>
-
-                <input type="text" name="username" placeholder="Username" required>
-                <input type="password" name="password" placeholder="Password" required>
-                <input type="submit" value="Login">
-            </div>-->
+                <form th:action="@{'/register'}" th:object="${user}" method="post">
+                <input type="text" name="firstName" placeholder="firstName" required="reuired" th:field="*{firstName}"/>
+                <input type="text" name="lastName" placeholder="lastName" required="reuired" th:field="*{lastName}""/>
+                <input type="text" name="email" placeholder="email" required="reuired" th:field="*{email}"/>
+                <input type="password" name="password" placeholder="Password" required="reuired" th:field="*{password}""/>
+                <input type="submit" value="Register"/>
+                </form>
+            </div>
 
         </div>
 </div>

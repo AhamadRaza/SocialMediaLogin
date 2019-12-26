@@ -19,6 +19,7 @@ public class FacebookController {
     public RedirectView facebooklogin(){
         RedirectView redirectView = new RedirectView();
         String url = facebookService.facebooklogin();
+        System.out.println(url);
         redirectView.setUrl(url);
         return redirectView;
     }
@@ -29,7 +30,7 @@ public class FacebookController {
         return "redirect:/facebookprofiledata/"+accessToken;
     }
 
-    @GetMapping(value = "/facebookprofiledata/{accessToken:.+}")
+    @GetMapping(value = "/facebookprofiledata/{accessToken:.}")
     public String facebookprofiledata(@PathVariable String accessToken, Model model){
         User user = facebookService.getfacebookUserProfile(accessToken);
         UserInfo userInfo  = new UserInfo(user.getFirstName(), user.getLastName(), user.getCover().getSource());

@@ -18,7 +18,7 @@
                 <a th:href="@{'/facebooklogin'}" class="fb btn">
                     <i class="fa fa-facebook fa-fw"></i> Login with Facebook
                 </a>
-                <a href="#" class="linkedin btn">
+                <a th:href="@{'/linkedinlogin'}" class="linkedin btn">
                     <i class="fa fa-linkedin fa-fw"></i> Login with LinkedIn
                 </a>
                 <a th:href="@{'/googlelogin'}" class="google btn"><i class="fa fa-google fa-fw">
@@ -30,7 +30,6 @@
                 <img th:src="${user.imageUrl}" width="120px" height="120px">
                 <h2 th:text="${user.firstName+' '+user.lastName}"></h2>
             </div>
-
         </div>
 </div>
 </body>

@@ -24,14 +24,14 @@ public class GoogleServiceImpl implements GoogleService{
     @Override
     public String googlelogin() {
         OAuth2Parameters parameters = new OAuth2Parameters();
-        parameters.setRedirectUri("http://localhost:8080/google");
+        parameters.setRedirectUri("http://localhost:8084/google");
         parameters.setScope("profile");
         return createGoogleConnection().getOAuthOperations().buildAuthenticateUrl(parameters);
     }
 
     @Override
     public String getGoogleAccessToken(String code) {
-        return createGoogleConnection().getOAuthOperations().exchangeForAccess(code, "http://localhost:8080/google",null).getAccessToken();
+        return createGoogleConnection().getOAuthOperations().exchangeForAccess(code, "http://localhost:8084/google",null).getAccessToken();
     }
 
     @Override
