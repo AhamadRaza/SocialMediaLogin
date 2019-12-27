@@ -25,7 +25,7 @@ public class GoogleServiceImpl implements GoogleService{
     public String googlelogin() {
         OAuth2Parameters parameters = new OAuth2Parameters();
         parameters.setRedirectUri("http://localhost:8084/google");
-        parameters.setScope("profile");
+        parameters.setScope("profile email");
         return createGoogleConnection().getOAuthOperations().buildAuthenticateUrl(parameters);
     }
 

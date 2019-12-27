@@ -35,6 +35,6 @@ public class GoogleController {
         Person user = googleService.getGoogleUserProfile(accessToken);
         UserInfo userInfo  = new UserInfo(user.getGivenName(), user.getFamilyName(), user.getImageUrl());
         model.addAttribute("user", userInfo);
-        return "view/userprofile";
+        return "redirect:/redirectdashboard";
     }
 }

@@ -17,10 +17,19 @@ public class UserServiceImpl implements UserService{
     @Override
     public UserInfo save(UserInfo userInfo) {
         userInfo.setEnabled(true);
-        userInfo.setRole("ADMIN");
         if(StringUtils.hasText(userInfo.getPassword())){
             userInfo.setPassword(PasswordUtil.getEncodedPassword(userInfo.getPassword()));
         }
         return userRepository.save(userInfo);
+    }
+
+    @Override
+    public UserInfo findByEmail(String email) {
+        return userRepository.findByEmail(email);
+    }
+
+    @Override
+    public void update(UserInfo dbUser) {
+        userRepository.save(dbUser);
     }
 }

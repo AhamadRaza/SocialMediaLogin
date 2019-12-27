@@ -36,6 +36,6 @@ public class LinkedinController {
         LinkedInProfileFull profileFull = linkedinService.getLinkedinUserProfile(accessToken);
         UserInfo userInfo  = new UserInfo(profileFull.getFirstName(), profileFull.getLastName(), profileFull.getProfilePictureUrl());
         model.addAttribute("user", userInfo);
-        return "view/userprofile";
+        return "redirect:/redirectdashboard";
     }
 }

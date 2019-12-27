@@ -35,6 +35,16 @@ public class LoginSecurity extends WebSecurityConfigurerAdapter{
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-
+        http.authorizeRequests().antMatchers("/**").permitAll()
+                .antMatchers("/user/**").hasAnyRole("USER")
+                .antMatchers("/admin/**").hasAnyRole("ADMIN")
+                .and().formLogin()
+                .loginPage("/").loginProcessingUrl("/login")
+                .usernameParameter("email").passwordParameter("password")
+                .defaultSuccessUrl("/redirectdashboard")
+                .failureUrl("/loginfailure")
+                .and().logout().logoutUrl("/logout")
+                .logoutSuccessUrl("/logoutsuccess").and()
+                .exceptionHandling().accessDeniedPage("/accesdenied");
     }
 }

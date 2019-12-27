@@ -60,7 +60,7 @@
         <dependency>
             <groupId>org.springframework.social</groupId>
             <artifactId>spring-social-google</artifactId>
-            <version>1.0.0.RC1</version>
+            <version>1.0.0.RELEASE</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-security -->

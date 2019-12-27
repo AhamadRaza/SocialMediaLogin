@@ -10,8 +10,12 @@
 <div class="container">
         <div class="row">
             <h2 style="text-align:center">Login with Social Media or Manually</h2>
+            <h4 style="text-align:center;color: darkred" th:if="${errormessage}"><span th:text="${errormessage}"></span></h4>
             <div class="vl">
                 <span class="vl-innertext">or</span>
+            </div>
+            <div class="ul">
+                <span class="ul-innertext">or</span>
             </div>
 
             <div class="col">
@@ -25,6 +29,16 @@
                 </i> Login with Google+
                 </a>
             </div>
+            <div class="col">
+                <div class="hide-md-lg">
+                    <p>Or sign in manually:</p>
+                </div>
+                <form th:action="@{'/login'}"  method="post">
+                    <input type="text" name="email" placeholder="email" required="reuired" />
+                    <input type="password" name="password" placeholder="Password" required="reuired" />
+                    <input type="submit" value="Login"/>
+                </form>
+            </div>
 
             <div class="col">
                 <div class="hide-md-lg">
@@ -32,9 +46,9 @@
                 </div>
                 <form th:action="@{'/register'}" th:object="${user}" method="post">
                 <input type="text" name="firstName" placeholder="firstName" required="reuired" th:field="*{firstName}"/>
-                <input type="text" name="lastName" placeholder="lastName" required="reuired" th:field="*{lastName}""/>
+                <input type="text" name="lastName" placeholder="lastName" required="reuired" th:field="*{lastName}"/>
                 <input type="text" name="email" placeholder="email" required="reuired" th:field="*{email}"/>
-                <input type="password" name="password" placeholder="Password" required="reuired" th:field="*{password}""/>
+                <input type="password" name="password" placeholder="Password" required="reuired" th:field="*{password}"/>
                 <input type="submit" value="Register"/>
                 </form>
             </div>
